@@ -1,355 +1,2165 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - PanelPro Neo-Brutalis</title>
-    
-    <!-- Fontshare: Cabinet Grotesk & Satoshi -->
-    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap 5 CSS -->
+    <meta name="description"
+        content="Baca artikel, tips, dan panduan kemping di Batu Malang. Kumpulan edukasi camping keluarga, prinsip leave no trace, dan resep masak di alam terbuka.">
+    <meta name="keywords" content="blog kemping batu, tips camping malang, edukasi alam bebas, panduan glamping malang">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wisatacampingbatu.web.id/blog.html">
+    <meta property="og:title" content="Blog & Panduan Wisata Kemping Batu Malang">
+    <meta property="og:description"
+        content="Kumpulan tips dan inspirasi terbaik untuk liburan kemping Anda di Kota Batu.">
+    <meta property="og:url" content="https://wisatacampingbatu.web.id/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://wisatacampingbatu.web.id/assets/img/hero_10_11zon.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://wisatacampingbatu.web.id/assets/img/hero_10_11zon.webp">
+    <title>Blog & Panduan Kemping | Inspirasi Wisata Kemping Batu Malang</title>
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            /* Warna Capri */
-            --primary: #00bfff; 
-            --charcoal: #171e19;
-            --sage: #cce0ff;
-            --dark: #272727;
-            --star: #ffbc2e;
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
 
-        /* Prevent Horizontal Scroll / Goyang Kanan Kiri */
-        body { 
-            font-family: 'Satoshi', sans-serif; 
-            overflow-x: hidden;
-            width: 100%;
-        }
-        
-        h1, h2, h3, h4, h5, h6, .font-cabinet { 
-            font-family: 'Cabinet Grotesk', sans-serif; 
-        }
-
-        /* Custom Colors & Borders */
-        .bg-primary-custom { background-color: var(--primary) !important; }
-        .bg-charcoal { background-color: var(--charcoal) !important; color: white; }
-        .bg-sage { background-color: var(--sage) !important; }
-        .bg-dark-custom { background-color: var(--dark) !important; color: white; }
-        .text-sage { color: var(--sage) !important; }
-        .text-star { color: var(--star) !important; }
-        
-        .border-black-2 { border: 2px solid #000 !important; }
-        .border-bottom-black-2 { border-bottom: 2px solid #000 !important; }
-        .border-y-black-2 { border-top: 2px solid #000 !important; border-bottom: 2px solid #000 !important; }
-
-        /* Hard Shadows */
-        .shadow-neo-4 { box-shadow: 4px 4px 0px 0px #000 !important; }
-        .shadow-neo-8 { box-shadow: 8px 8px 0px 0px #000 !important; }
-        .shadow-neo-12 { box-shadow: 12px 12px 0px 0px #000 !important; }
-
-        /* Radial Dot Pattern */
-        .bg-dots {
-            background-image: radial-gradient(black 1px, transparent 1px);
-            background-size: 32px 32px;
-            background-position: 0 0;
-            background-color: var(--primary);
-            position: relative;
-            z-index: 1;
-        }
-        .bg-dots::before {
-            content: ''; position: absolute; inset: 0;
-            background-color: rgba(0, 191, 255, 0.9);
-            z-index: -1;
-        }
-
-        /* Stroke Text Effect */
-        .text-stroke {
-            -webkit-text-stroke: 2px black;
-            color: transparent;
-        }
-
-        /* Neo-Brutalist Components */
-        .neo-btn, .neo-btn-8, .neo-card {
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .neo-btn:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0px 0px #000 !important;
-        }
-        .neo-btn-8:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 4px 4px 0px 0px #000 !important;
-        }
-        .neo-card:hover {
-            transform: translateY(-8px);
-        }
-
-        /* Border Radius Helpers */
-        .rounded-xl { border-radius: 0.75rem !important; }
-        .rounded-2xl { border-radius: 1rem !important; }
-        .rounded-3xl { border-radius: 1.5rem !important; }
-
-        /* Floating Buttons Container */
-        .floating-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1050;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .floating-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #000;
-            box-shadow: 4px 4px 0px 0px #000;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .floating-btn:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px 0px #000;
-        }
-
-        .btn-wa { background-color: #25D366; color: white; }
-        .btn-top { background-color: var(--primary); color: #fff; }
-    
-        /* Custom Neo-Brutalist Dropdown */
-        .neo-dropdown {
-            border: 2px solid #000 !important;
-            box-shadow: 4px 4px 0px 0px #000 !important;
-            border-radius: 0.75rem !important;
-            padding: 0.5rem !important;
-            background-color: #fff !important;
-        }
-        .neo-dropdown .dropdown-item {
-            font-family: 'Satoshi', sans-serif;
-            font-weight: 700;
-            border-radius: 0.5rem;
-            transition: all 0.2s;
-            border: 2px solid transparent;
-            padding: 0.5rem 1rem;
-            color: #000;
-            text-shadow: none;
-        }
-        .neo-dropdown .dropdown-item:hover {
-            background-color: var(--primary) !important;
-            color: #fff !important;
-            border: 2px solid #000;
-            box-shadow: 2px 2px 0px 0px #000;
-        }
-    </style>
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Wisata Kemping Batu Malang",
+      "image": "https://wisatacampingbatu.web.id/assets/img/logo.png",
+      "@id": "https://wisatacampingbatu.web.id/",
+      "url": "https://wisatacampingbatu.web.id/",
+      "telephone": "+6281239225692",
+      "priceRange": "Rp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Hutan Pinus No.1",
+        "addressLocality": "Batu",
+        "addressRegion": "Malang, Jawa Timur",
+        "postalCode": "65151",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.8711,
+        "longitude": 112.5268
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.facebook.com/wisatakempingbatu",
+        "https://www.instagram.com/wisatakempingbatu"
+      ]
+    }
+    </script>
 </head>
-<body class="bg-white text-dark">
 
-        <!-- Navigation -->
-    <header class="fixed-top h-20 bg-primary-custom border-bottom-black-2 z-3 px-4 d-flex align-items-center" style="height: 80px;">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center gap-2">
-                <div class="bg-black d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                    <svg class="text-white" style="width: 24px; height: 24px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clip-rule="evenodd"></path></svg>
-                </div>
-                <span class="font-cabinet fw-bolder fs-4 text-white" style="letter-spacing: -1px; text-shadow: 2px 2px 0 #000;">PANELPRO</span>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand brand-font" href="index.html">
+                <img src="assets/img/logo.png" alt="KampBatu Logo"> BatuCamp </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="packages.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                </ul>
             </div>
-            
-            <nav class="d-none d-lg-flex align-items-center gap-4 fw-medium text-white" style="text-shadow: 1px 1px 0 #000;">
-                <a href="index.html" class="text-white text-decoration-none hover:underline">Beranda</a>
-                <a href="about.html" class="text-white text-decoration-none hover:underline">Tentang kami</a>
-                
-                <!-- Dropdown Produk -->
-                <div class="dropdown">
-                    <a href="#" class="text-white text-decoration-none dropdown-toggle  pb-1" id="dropdownProduk" data-bs-toggle="dropdown" aria-expanded="false">
-                        Produk
-                    </a>
-                    <ul class="dropdown-menu neo-dropdown mt-3" aria-labelledby="dropdownProduk" style="min-width: 250px;">
-                        <li><span class="dropdown-item-text text-secondary fw-bold" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Layar Interaktif (IFP)</span></li>
-                        <li><a class="dropdown-item mb-1" href="ifp-65.html">PanelPro 65" (Ruang Kelas & Diskusi)</a></li>
-                        <li><a class="dropdown-item mb-1" href="ifp-75.html">PanelPro 75" (Ruang Rapat Standar)</a></li>
-                        <li><a class="dropdown-item mb-1" href="ifp-86.html">PanelPro 86" (Ruang Rapat Besar/Eksekutif)</a></li>
-                        <li><a class="dropdown-item mb-1" href="ifp-98.html">PanelPro 98" (Auditorium & Aula)</a></li>
-                        <li><hr class="dropdown-divider border-black-2"></li>
-                        <li><span class="dropdown-item-text text-secondary fw-bold" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Aksesoris & Modul</span></li>
-                        <li><a class="dropdown-item mb-1" href="modul-ops.html">Modul PC (OPS Windows)</a></li>
-                        <li><a class="dropdown-item" href="stand.html">Stand Beroda (Mobile Stand)</a></li>
+        </div>
+    </nav>
+
+    <section class="hero-mini" style="background-image: url('assets/img/page-title_24_11zon.webp');">
+        <div class="container text-center text-white">
+            <h1>Kabar Alam</h1>
+            <p class="lead">Panduan, Edukasi, dan Tips Liburan Hutan Berkesan</p>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--warm-cream);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Semua Artikel Blog</h2>
+                <p>Inspirasi dan panduan terbaik untuk petualangan alam Anda</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/cara_mengelola_perubahan_rencana.webp"
+                            alt="Cara Mengelola Perubahan Rencana Outbound Secara Mendadak">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="cara-mengelola-perubahan-rencana-outbound-secara-mendadak.html"
+                                    class="text-dark text-decoration-none">Cara Mengelola Perubahan Rencana Outbound Secara Mendadak</a></h4>
+                            <p class="text-muted small">Panduan praktis bagi penyelenggara acara untuk beralih dari aktivitas outdoor ke indoor dengan cepat, tenang, dan tetap menyenangkan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="cara-mengelola-perubahan-rencana-outbound-secara-mendadak.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/tips_memilih_venue_indoor.webp"
+                            alt="Tips Memilih Venue Indoor untuk Outbound Musim Hujan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-memilih-venue-indoor-untuk-outbound-musim-hujan.html"
+                                    class="text-dark text-decoration-none">Tips Memilih Venue Indoor untuk Outbound Musim Hujan</a></h4>
+                            <p class="text-muted small">Pastikan rencana cadangan Anda sempurna dengan panduan memilih venue berfasilitas memadai dan berkapasitas lega untuk acara team building.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-memilih-venue-indoor-untuk-outbound-musim-hujan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/ide_permainan_outbound_indoor.webp"
+                            alt="Ide Permainan Outbound Indoor yang Seru dan Interaktif">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="ide-permainan-outbound-indoor-yang-seru-dan-interaktif.html"
+                                    class="text-dark text-decoration-none">Ide Permainan Outbound Indoor yang Seru dan Interaktif</a></h4>
+                            <p class="text-muted small">Kumpulan referensi permainan team building dalam ruangan yang tetap pecah dan memupuk kebersamaan layaknya beraktivitas di alam terbuka.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="ide-permainan-outbound-indoor-yang-seru-dan-interaktif.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/outbound_musim_hujan.webp"
+                            alt="Outbound Musim Hujan: Rencana Cadangan Indoor Tetap Seru">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="outbound-musim-hujan-rencana-cadangan-indoor-tetap-seru.html"
+                                    class="text-dark text-decoration-none">Outbound Musim Hujan: Rencana Cadangan Indoor Tetap Seru</a></h4>
+                            <p class="text-muted small">Jangan biarkan hujan menggagalkan acara Anda. Pelajari cara menyiapkan alternatif kegiatan indoor yang sama menantangnya.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="outbound-musim-hujan-rencana-cadangan-indoor-tetap-seru.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/destinasi_wisata_batu_berdasarkan_musim.webp"
+                            alt="Rekomendasi Destinasi Wisata Batu Berdasarkan Musim">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rekomendasi-destinasi-wisata-batu-berdasarkan-musim.html"
+                                    class="text-dark text-decoration-none">Rekomendasi Destinasi Wisata Batu Berdasarkan Musim</a></h4>
+                            <p class="text-muted small">Panduan memilih destinasi di Batu menyesuaikan kondisi musim demi memaksimalkan kenyamanan liburan Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rekomendasi-destinasi-wisata-batu-berdasarkan-musim.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/waktu_terbaik_berkunjung.webp"
+                            alt="Tips Memilih Waktu Terbaik Berkunjung ke Wisata Batu">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-memilih-waktu-terbaik-berkunjung-ke-wisata-batu.html"
+                                    class="text-dark text-decoration-none">Tips Memilih Waktu Terbaik Berkunjung ke Wisata Batu</a></h4>
+                            <p class="text-muted small">Rencanakan perjalanan Anda dengan strategi cerdas untuk menghindari keramaian, mendapatkan cuaca sempurna, dan menekan anggaran akomodasi.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-memilih-waktu-terbaik-berkunjung-ke-wisata-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/event_musiman_batu.webp"
+                            alt="Event Musiman Batu: Jadwal dan Tips Kunjungan Terbaik">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="event-musiman-batu-jadwal-dan-tips-kunjungan-terbaik.html"
+                                    class="text-dark text-decoration-none">Event Musiman Batu: Jadwal dan Tips Kunjungan Terbaik</a></h4>
+                            <p class="text-muted small">Ketahui kapan waktu paling ideal untuk berlibur, menghadiri festival lokal, dan menikmati cuaca cerah di dataran tinggi Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="event-musiman-batu-jadwal-dan-tips-kunjungan-terbaik.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/kalender_event_wisata_batu.webp"
+                            alt="Kalender Event Wisata Batu: Panduan Lengkap Sepanjang Tahun">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kalender-event-wisata-batu-panduan-lengkap-sepanjang-tahun.html"
+                                    class="text-dark text-decoration-none">Kalender Event Wisata Batu: Panduan Lengkap Sepanjang Tahun</a></h4>
+                            <p class="text-muted small">Susun itinerary perjalanan Anda lebih sempurna dengan panduan jadwal festival, musim agrowisata, dan puncak keramaian di Kota Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kalender-event-wisata-batu-panduan-lengkap-sepanjang-tahun.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/outbound_alam_batu_malang.webp"
+                            alt="Outbound Alam Batu Malang untuk Team Building Perusahaan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="outbound-alam-batu-malang-untuk-team-building-perusahaan.html"
+                                    class="text-dark text-decoration-none">Outbound Alam Batu Malang untuk Team Building Perusahaan</a></h4>
+                            <p class="text-muted small">Manfaatkan pesona alam dataran tinggi Batu sebagai arena pembentukan karakter, kepemimpinan, dan kerja sama tim perusahaan Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="outbound-alam-batu-malang-untuk-team-building-perusahaan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/outbound_kuliner_kolaboratif.webp"
+                            alt="Outbound Kuliner Kolaboratif di Batu Malang untuk Tim">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="outbound-kuliner-kolaboratif-di-batu-malang-untuk-tim.html"
+                                    class="text-dark text-decoration-none">Outbound Kuliner Kolaboratif di Batu Malang untuk Tim</a></h4>
+                            <p class="text-muted small">Aktivitas memasak bersama di alam terbuka yang dirancang khusus untuk melatih komunikasi, pembagian peran, dan penyelesaian masalah bagi perusahaan Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="outbound-kuliner-kolaboratif-di-batu-malang-untuk-tim.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/ide_outbound_seni_lokal.webp"
+                            alt="Ide Outbound Unik Berbasis Seni Lokal di Batu Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="ide-outbound-unik-berbasis-seni-lokal-di-batu-malang.html"
+                                    class="text-dark text-decoration-none">Ide Outbound Unik Berbasis Seni Lokal di Batu Malang</a></h4>
+                            <p class="text-muted small">Rasakan pengalaman team building yang berbeda melalui aktivitas melukis, membatik, hingga seni pertunjukan bersama seniman asli Kota Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="ide-outbound-unik-berbasis-seni-lokal-di-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/team_building_anti_mainstream.webp"
+                            alt="Team Building Anti-Mainstream di Batu Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="team-building-anti-mainstream-di-batu-malang.html"
+                                    class="text-dark text-decoration-none">Team Building Anti-Mainstream di Batu Malang</a></h4>
+                            <p class="text-muted small">Hadirkan pengalaman kerja sama tim yang lebih bermakna melalui eksplorasi seni, budaya, dan kuliner khas dataran tinggi Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="team-building-anti-mainstream-di-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/tips_merancang_outbound_kurikulum.webp"
+                            alt="Tips Merancang Kegiatan Outbound Sekolah Berbasis Kurikulum">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-merancang-kegiatan-outbound-sekolah-berbasis-kurikulum.html"
+                                    class="text-dark text-decoration-none">Tips Merancang Kegiatan Outbound Sekolah Berbasis Kurikulum</a></h4>
+                            <p class="text-muted small">Panduan praktis bagi guru dan panitia sekolah untuk menyusun acara alam yang terintegrasi langsung dengan capaian pembelajaran akademik siswa.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-merancang-kegiatan-outbound-sekolah-berbasis-kurikulum.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rekomendasi_wisata_edukasi_malang.webp"
+                            alt="Rekomendasi Wisata Edukasi Malang untuk Outbound Sekolah">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rekomendasi-wisata-edukasi-malang-untuk-outbound-sekolah.html"
+                                    class="text-dark text-decoration-none">Rekomendasi Wisata Edukasi Malang untuk Outbound Sekolah</a></h4>
+                            <p class="text-muted small">Pilihan destinasi study tour dan outbound sekolah di Malang yang menawarkan pengalaman belajar nyata tentang alam, sains, dan geografi.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rekomendasi-wisata-edukasi-malang-untuk-outbound-sekolah.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/manfaat_outbound_edukasi.webp"
+                            alt="Manfaat Outbound Edukasi bagi Perkembangan Siswa">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="manfaat-outbound-edukasi-bagi-perkembangan-siswa.html"
+                                    class="text-dark text-decoration-none">Manfaat Outbound Edukasi bagi Perkembangan Siswa</a></h4>
+                            <p class="text-muted small">Bukan sekadar bermain-main di alam! Kegiatan outbound yang dirancang khusus mampu menguatkan aspek kognitif, afektif, dan sosial peserta didik.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="manfaat-outbound-edukasi-bagi-perkembangan-siswa.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/outbound_sekolah_edukatif.webp"
+                            alt="Outbound Sekolah Edukatif yang Terhubung Kurikulum">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="outbound-sekolah-edukatif-yang-terhubung-kurikulum.html"
+                                    class="text-dark text-decoration-none">Outbound Sekolah Edukatif yang Terhubung Kurikulum</a></h4>
+                            <p class="text-muted small">Ciptakan kegiatan alam terbuka yang menyenangkan namun tetap memperkuat pemahaman akademik dan karakter bagi siswa.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="outbound-sekolah-edukatif-yang-terhubung-kurikulum.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/tips_rundown_outbound.webp"
+                            alt="Tips Menyusun Rundown Outbound Singkat dan Efektif">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-menyusun-rundown-outbound-singkat-dan-efektif.html"
+                                    class="text-dark text-decoration-none">Tips Menyusun Rundown Outbound Singkat dan Efektif</a></h4>
+                            <p class="text-muted small">Ketahui rahasia menyusun jadwal kegiatan gathering yang padat, penuh tawa, dan tetap berdampak maksimal meski waktunya terbatas.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-menyusun-rundown-outbound-singkat-dan-efektif.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/outbound_tim_remote.webp"
+                            alt="Outbound Tim Remote: Cara Efektif Perkuat Kebersamaan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="outbound-tim-remote-cara-efektif-perkuat-kebersamaan.html"
+                                    class="text-dark text-decoration-none">Outbound Tim Remote: Cara Efektif Perkuat Kebersamaan</a></h4>
+                            <p class="text-muted small">Jadikan momen tatap muka yang langka menjadi kesempatan emas mempererat komunikasi antaranggota tim kerja jarak jauh.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="outbound-tim-remote-cara-efektif-perkuat-kebersamaan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/outbound_hybrid_vs_remote.webp"
+                            alt="Apa Perbedaan Outbound Hybrid dengan Outbound Tim Remote Sepenuhnya">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="apa-perbedaan-outbound-hybrid-dengan-outbound-tim-remote-sepenuhnya.html"
+                                    class="text-dark text-decoration-none">Apa Perbedaan Outbound Hybrid dengan Outbound Tim Remote Sepenuhnya</a></h4>
+                            <p class="text-muted small">Pahami perbedaan mendasar dari kegiatan outbound untuk tim kerja hybrid versus tim yang remote sepenuhnya.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="apa-perbedaan-outbound-hybrid-dengan-outbound-tim-remote-sepenuhnya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/outbound_setengah_hari.webp"
+                            alt="Outbound Setengah Hari untuk Tim Kerja Hybrid">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="outbound-setengah-hari-untuk-tim-kerja-hybrid.html"
+                                    class="text-dark text-decoration-none">Outbound Setengah Hari untuk Tim Kerja Hybrid</a></h4>
+                            <p class="text-muted small">Outbound setengah hari adalah format padat yang efektif memperkuat kekompakan tim hybrid tanpa membuang banyak waktu kerja produktif.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="outbound-setengah-hari-untuk-tim-kerja-hybrid.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/perlengkapan_airsoft_gun.webp"
+                            alt="Panduan Memilih Perlengkapan Airsoft Gun untuk Pemula">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-memilih-perlengkapan-airsoft-gun-untuk-pemula.html"
+                                    class="text-dark text-decoration-none">Panduan Memilih Perlengkapan Airsoft Gun untuk Pemula</a></h4>
+                            <p class="text-muted small">Baru pertama kali main airsoft? Simak panduan memilih kacamata pelindung, pakaian, hingga replika yang tepat sebelum bermain.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-memilih-perlengkapan-airsoft-gun-untuk-pemula.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/perbedaan_airsoft_paintball.webp"
+                            alt="Perbedaan Airsoft Gun dan Paintball yang Perlu Diketahui">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="perbedaan-airsoft-gun-dan-paintball-yang-perlu-diketahui.html"
+                                    class="text-dark text-decoration-none">Perbedaan Airsoft Gun dan Paintball yang Perlu Diketahui</a></h4>
+                            <p class="text-muted small">Ketahui perbedaan airsoft gun dan paintball dari jenis peluru, dampak tembakan, hingga gaya bermain untuk menentukan pilihan yang tepat.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="perbedaan-airsoft-gun-dan-paintball-yang-perlu-diketahui.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/airsoft_gun_alternatif.webp"
+                            alt="Airsoft Gun: Alternatif War Game yang Lebih Ringan dari Paintball">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="airsoft-gun-alternatif-war-game-yang-lebih-ringan-dari-paintball.html"
+                                    class="text-dark text-decoration-none">Airsoft Gun: Alternatif War Game yang Lebih Ringan dari Paintball</a></h4>
+                            <p class="text-muted small">Airsoft gun adalah alternatif war game dengan peluru BB plastik yang lebih ramah pemula dengan risiko benturan yang lebih kecil dibanding paintball.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="airsoft-gun-alternatif-war-game-yang-lebih-ringan-dari-paintball.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/kesalahan_menyewa_paintball.webp"
+                            alt="Kesalahan Umum Saat Menyewa Paintball dan Solusinya">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kesalahan-umum-saat-menyewa-paintball-dan-solusinya.html"
+                                    class="text-dark text-decoration-none">Kesalahan Umum Saat Menyewa Paintball dan Solusinya</a></h4>
+                            <p class="text-muted small">Jangan sampai anggaran bengkak! Pahami kesalahan umum saat menyewa paintball dan solusinya sebelum booking paket.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kesalahan-umum-saat-menyewa-paintball-dan-solusinya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/memilih_vendor_paintball.webp"
+                            alt="Cara Memilih Vendor Outbound Paintball yang Tepat">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="cara-memilih-vendor-outbound-paintball-yang-tepat.html"
+                                    class="text-dark text-decoration-none">Cara Memilih Vendor Outbound Paintball yang Tepat</a></h4>
+                            <p class="text-muted small">Memilih vendor outbound paintball yang tepat memerlukan perhatian pada standar keselamatan, perlengkapan, dan transparansi harga.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="cara-memilih-vendor-outbound-paintball-yang-tepat.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/faktor_harga_paintball.webp"
+                            alt="Faktor Penentu Harga Paintball yang Wajib Diketahui">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="faktor-penentu-harga-paintball-yang-wajib-diketahui.html"
+                                    class="text-dark text-decoration-none">Faktor Penentu Harga Paintball yang Wajib Diketahui</a></h4>
+                            <p class="text-muted small">Faktor penentu harga paintball meliputi jumlah peluru, jenis marker, lokasi lapangan, durasi bermain, dan layanan tambahan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="faktor-penentu-harga-paintball-yang-wajib-diketahui.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/harga_paintball.webp"
+                            alt="Harga Paintball: Kisaran Biaya dan Faktor yang Mempengaruhinya">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="harga-paintball-kisaran-biaya-dan-faktor-yang-mempengaruhinya.html"
+                                    class="text-dark text-decoration-none">Harga Paintball: Kisaran Biaya dan Faktor yang Mempengaruhinya</a></h4>
+                            <p class="text-muted small">Harga paintball dipengaruhi oleh kombinasi jumlah peluru, perlengkapan, lokasi, dan jasa pendampingan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="harga-paintball-kisaran-biaya-dan-faktor-yang-mempengaruhinya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/body_rafting_adalah.webp"
+                            alt="Body Rafting Adalah: Pengertian, Risiko, dan Persiapannya">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="body-rafting-adalah-pengertian-risiko-dan-persiapannya.html"
+                                    class="text-dark text-decoration-none">Body Rafting Adalah: Pengertian, Risiko, dan Persiapannya</a></h4>
+                            <p class="text-muted small">Body rafting adalah aktivitas menyusuri arus sungai secara langsung dengan tubuh dibantu pelampung, tanpa perahu karet.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="body-rafting-adalah-pengertian-risiko-dan-persiapannya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rafting_artinya_apa.webp"
+                            alt="Rafting Artinya Apa? Ini Penjelasan dan Asal Katanya">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rafting-artinya-apa-ini-penjelasan-dan-asal-katanya.html"
+                                    class="text-dark text-decoration-none">Rafting Artinya Apa? Ini Penjelasan dan Asal Katanya</a></h4>
+                            <p class="text-muted small">Rafting artinya menyusuri sungai berarus deras menggunakan perahu karet, berasal dari kata bahasa Inggris "raft".</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rafting-artinya-apa-ini-penjelasan-dan-asal-katanya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/arung_jeram_pengertian.webp"
+                            alt="Arung Jeram: Pengertian, Grade, dan Bedanya dari Rafting">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="arung-jeram-pengertian-grade-dan-bedanya-dari-rafting.html"
+                                    class="text-dark text-decoration-none">Arung Jeram: Pengertian, Grade, dan Bedanya dari Rafting</a></h4>
+                            <p class="text-muted small">Arung jeram adalah istilah Indonesia untuk menyusuri sungai berarus deras, yang secara umum sama dengan rafting.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="arung-jeram-pengertian-grade-dan-bedanya-dari-rafting.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rafting_adalah_beda.webp"
+                            alt="Rafting Adalah: Ini Beda dengan Arung Jeram dan Body Rafting di Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rafting-adalah-ini-beda-dengan-arung-jeram-dan-body-rafting-di-malang.html"
+                                    class="text-dark text-decoration-none">Rafting Adalah: Ini Beda dengan Arung Jeram dan Body Rafting di Malang</a></h4>
+                            <p class="text-muted small">Rafting adalah olahraga arus deras menggunakan perahu karet berawak. Pahami bedanya dengan arung jeram dan body rafting.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rafting-adalah-ini-beda-dengan-arung-jeram-dan-body-rafting-di-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/level_kesulitan_jeram.webp"
+                            alt="Level Kesulitan Jeram: Panduan Memilih Sesuai Keluarga">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="level-kesulitan-jeram-panduan-memilih-sesuai-keluarga.html"
+                                    class="text-dark text-decoration-none">Level Kesulitan Jeram: Panduan Memilih Sesuai Keluarga</a></h4>
+                            <p class="text-muted small">Level kesulitan jeram adalah klasifikasi tingkat tantangan arus sungai dalam kegiatan rafting, mulai dari kelas I yang tenang hingga kelas V ekstrem.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="level-kesulitan-jeram-panduan-memilih-sesuai-keluarga.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rafting_lansia.webp"
+                            alt="Rafting Lansia: Panduan Aman untuk Usia Dewasa Lanjut">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rafting-lansia-panduan-aman-untuk-usia-dewasa-lanjut.html"
+                                    class="text-dark text-decoration-none">Rafting Lansia: Panduan Aman untuk Usia Dewasa Lanjut</a></h4>
+                            <p class="text-muted small">Rafting lansia adalah kegiatan arung jeram yang tetap dapat diikuti oleh peserta usia dewasa lanjut selama rute yang dipilih memiliki tingkat kesulitan ringan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rafting-lansia-panduan-aman-untuk-usia-dewasa-lanjut.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rafting_anak.webp"
+                            alt="Rafting Anak: Syarat Usia dan Tips Keamanan Lengkap">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rafting-anak-syarat-usia-dan-tips-keamanan-lengkap.html"
+                                    class="text-dark text-decoration-none">Rafting Anak: Syarat Usia dan Tips Keamanan Lengkap</a></h4>
+                            <p class="text-muted small">Rafting anak adalah kegiatan arung jeram yang disesuaikan untuk peserta usia dini dengan syarat usia minimal tertentu dan tingkat kesulitan jeram yang ringan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rafting-anak-syarat-usia-dan-tips-keamanan-lengkap.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rafting_keluarga.webp"
+                            alt="Rafting Keluarga: Level Kesulitan untuk Anak dan Lansia">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rafting-keluarga-level-kesulitan-untuk-anak-dan-lansia.html"
+                                    class="text-dark text-decoration-none">Rafting Keluarga: Level Kesulitan untuk Anak dan Lansia</a></h4>
+                            <p class="text-muted small">Rafting keluarga adalah kegiatan arung jeram yang dirancang dengan tingkat kesulitan ringan hingga sedang agar dapat diikuti bersama oleh anak-anak, orang dewasa, dan lansia.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rafting-keluarga-level-kesulitan-untuk-anak-dan-lansia.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/estimasi_biaya_rafting.webp"
+                            alt="Estimasi Biaya Rafting Perusahaan untuk Corporate Gathering">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="estimasi-biaya-rafting-perusahaan-untuk-corporate-gathering.html"
+                                    class="text-dark text-decoration-none">Estimasi Biaya Rafting Perusahaan untuk Corporate Gathering</a></h4>
+                            <p class="text-muted small">Estimasi biaya rafting perusahaan untuk corporate gathering ditentukan oleh jumlah peserta, lokasi sungai, tingkat kesulitan rute, serta fasilitas tambahan yang dipilih.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="estimasi-biaya-rafting-perusahaan-untuk-corporate-gathering.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/tips_memilih_vendor_rafting.webp"
+                            alt="Tips Memilih Vendor Team Building Sungai yang Aman">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-memilih-vendor-team-building-sungai-yang-aman.html"
+                                    class="text-dark text-decoration-none">Tips Memilih Vendor Team Building Sungai yang Aman</a></h4>
+                            <p class="text-muted small">Memilih vendor team building sungai yang aman memerlukan pengecekan standar keselamatan, pengalaman memandu grup korporat, dan kejelasan paket.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-memilih-vendor-team-building-sungai-yang-aman.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/manfaat_rafting.webp"
+                            alt="Manfaat Rafting Tim untuk Kekompakan Karyawan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="manfaat-rafting-tim-untuk-kekompakan-karyawan.html"
+                                    class="text-dark text-decoration-none">Manfaat Rafting Tim untuk Kekompakan Karyawan</a></h4>
+                            <p class="text-muted small">Rafting tim memberikan manfaat langsung bagi kekompakan karyawan karena mengharuskan setiap anggota berkoordinasi secara fisik dan verbal saat menghadapi arus sungai bersama-sama.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="manfaat-rafting-tim-untuk-kekompakan-karyawan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rafting_perusahaan.webp"
+                            alt="Rafting Perusahaan: Panduan Lengkap Team Building Sungai">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rafting-perusahaan-panduan-lengkap-team-building-sungai.html"
+                                    class="text-dark text-decoration-none">Rafting Perusahaan: Panduan Lengkap Team Building Sungai</a></h4>
+                            <p class="text-muted small">Rafting perusahaan adalah kegiatan arung jeram yang dirancang khusus untuk corporate gathering dan team building sungai, bertujuan memperkuat kekompakan serta komunikasi antar karyawan lewat tantangan fisik terukur di alam terbuka.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rafting-perusahaan-panduan-lengkap-team-building-sungai.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/City_lights_view_202603311549_11zon.webp"
+                            alt="Rute dan Estimasi Biaya ke Taman Bunga Batu">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rute-dan-estimasi-biaya-ke-taman-bunga-batu.html"
+                                    class="text-dark text-decoration-none">Rute dan Estimasi Biaya ke Taman Bunga Batu</a></h4>
+                            <p class="text-muted small">Rute menuju taman bunga Batu umumnya ditempuh melalui jalur darat dari Kota Malang, dengan estimasi biaya yang bervariasi tergantung moda transportasi dan titik keberangkatan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rute-dan-estimasi-biaya-ke-taman-bunga-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218120718_11zon_31_11zon.webp"
+                            alt="Wisata Bunga Batu: Rekomendasi dan Tips Kunjungan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="wisata-bunga-batu-rekomendasi-dan-tips-kunjungan.html"
+                                    class="text-dark text-decoration-none">Wisata Bunga Batu: Rekomendasi dan Tips Kunjungan</a></h4>
+                            <p class="text-muted small">Wisata bunga Batu adalah pilihan destinasi keluarga di Kota Batu yang menawarkan pemandangan taman berwarna-warni, spot foto menarik, dan suasana udara sejuk dataran tinggi.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="wisata-bunga-batu-rekomendasi-dan-tips-kunjungan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121411_35_11zon.webp"
+                            alt="Taman Bunga Batu: Panduan Wisata dan Kalender Mekar">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="taman-bunga-batu-panduan-wisata-dan-kalender-mekar.html"
+                                    class="text-dark text-decoration-none">Taman Bunga Batu: Panduan Wisata dan Kalender Mekar</a></h4>
+                            <p class="text-muted small">Taman bunga Batu adalah destinasi wisata alam di Kota Batu, Jawa Timur, yang menampilkan hamparan bunga warna warni sebagai daya tarik utama. Waktu terbaik berkunjung mengikuti musim bunga mekar Batu, umumnya pada peralihan musim kemarau ke penghujan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="taman-bunga-batu-panduan-wisata-dan-kalender-mekar.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_122355_386_11zon_5_11zon.webp"
+                            alt="Musim Panen Strawberry Batu, Kapan Waktu Terbaiknya?">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="musim-panen-strawberry-batu.html"
+                                    class="text-dark text-decoration-none">Musim Panen Strawberry Batu, Kapan Waktu Terbaiknya?</a></h4>
+                            <p class="text-muted small">Musim panen strawberry Batu cenderung paling ideal saat musim kemarau, karena bunga stroberi mudah rusak dan busuk apabila terguyur hujan secara terus-menerus sebelum berkembang menjadi buah.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="musim-panen-strawberry-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133503_462_11zon_26_11zon.webp"
+                            alt="Musim Panen Jeruk Batu, Ini Waktu Terbaik Berkunjung">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="musim-panen-jeruk-batu-ini-waktu-terbaik-berkunjung.html"
+                                    class="text-dark text-decoration-none">Musim Panen Jeruk Batu, Ini Waktu Terbaik Berkunjung</a></h4>
+                            <p class="text-muted small">Musim panen jeruk Batu umumnya berlangsung antara September hingga Maret, dengan puncak panen paling melimpah terjadi sekitar Oktober hingga Desember setiap tahunnya.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="musim-panen-jeruk-batu-ini-waktu-terbaik-berkunjung.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/page-title_24_11zon.webp"
+                            alt="Musim Panen Apel Batu, Kapan Waktu Terbaiknya?">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="musim-panen-apel-batu-kapan-waktu-terbaiknya.html"
+                                    class="text-dark text-decoration-none">Musim Panen Apel Batu, Kapan Waktu Terbaiknya?</a></h4>
+                            <p class="text-muted small">Musim panen apel Batu paling melimpah umumnya terjadi pada Januari hingga Maret serta Juli hingga Agustus, meski buah apel pada dasarnya dapat dipetik hampir sepanjang tahun di kawasan ini.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="musim-panen-apel-batu-kapan-waktu-terbaiknya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121456_36_11zon.webp"
+                            alt="Kalender Musim Panen Batu: Strawberry, Apel, Jeruk">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kalender-musim-panen-batu-strawberry-apel-jeruk.html"
+                                    class="text-dark text-decoration-none">Kalender Musim Panen Batu: Strawberry, Apel, Jeruk</a></h4>
+                            <p class="text-muted small">Kalender musim panen Batu menunjukkan apel umumnya melimpah pada Januari-Maret dan Juli-Agustus, strawberry berlimpah saat musim kemarau, dan jeruk pada Oktober-Desember.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kalender-musim-panen-batu-strawberry-apel-jeruk.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/aesthetic_camping_outfit_indo.png"
+                            alt="Tips Persiapan Petik Strawberry di Batu untuk Wisatawan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-persiapan-petik-strawberry-di-batu-untuk-wisatawan.html"
+                                    class="text-dark text-decoration-none">Tips Persiapan Petik Strawberry di Batu untuk Wisatawan</a></h4>
+                            <p class="text-muted small">Persiapan petik strawberry di Batu mencakup pemilihan waktu kunjungan, perlengkapan yang tepat, serta pemahaman aturan kebun agar pengalaman petik berjalan lancar.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-persiapan-petik-strawberry-di-batu-untuk-wisatawan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/hero%20(2)_9_11zon.webp"
+                            alt="Kalender Panen Strawberry Batu Bulan per Bulan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kalender-panen-strawberry-batu-bulan-per-bulan.html"
+                                    class="text-dark text-decoration-none">Kalender Panen Strawberry Batu Bulan per Bulan</a></h4>
+                            <p class="text-muted small">Kalender panen strawberry Batu menggambarkan pola umum kualitas dan volume panen dari Januari hingga Desember, dengan periode terbaik pada musim kemarau.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kalender-panen-strawberry-batu-bulan-per-bulan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1547_4_11zon.webp"
+                            alt="Musim Strawberry Batu: Panduan Waktu Kunjungan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="musim-strawberry-batu-panduan-waktu-kunjungan.html"
+                                    class="text-dark text-decoration-none">Musim Strawberry Batu: Panduan Waktu Kunjungan</a></h4>
+                            <p class="text-muted small">Musim strawberry Batu merujuk pada periode sepanjang tahun ketika tanaman strawberry di kawasan dataran tinggi Batu berbuah, dengan kualitas terbaik pada musim kemarau.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="musim-strawberry-batu-panduan-waktu-kunjungan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121107_33_11zon.webp"
+                            alt="Petik Strawberry Batu: Kalender Musim Terbaik 2026">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="petik-strawberry-batu-kalender-musim-terbaik-2026.html"
+                                    class="text-dark text-decoration-none">Petik Strawberry Batu: Kalender Musim Terbaik 2026</a></h4>
+                            <p class="text-muted small">Petik strawberry Batu paling nyaman dilakukan saat musim kemarau, sekitar bulan April hingga September, karena buah lebih manis dan kebun tidak becek akibat hujan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="petik-strawberry-batu-kalender-musim-terbaik-2026.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/hero_10_11zon.webp"
+                            alt="Musim Wisata Batu Malang Sepanjang Tahun, Ini Faktanya">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="musim-wisata-batu-malang-sepanjang-tahun-ini-faktanya.html"
+                                    class="text-dark text-decoration-none">Musim Wisata Batu Malang Sepanjang Tahun, Ini Faktanya</a></h4>
+                            <p class="text-muted small">Musim wisata Batu Malang cenderung lebih ramai pada periode libur nasional serta saat berlangsungnya event besar seperti festival budaya di bulan Juli dan Oktober.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="musim-wisata-batu-malang-sepanjang-tahun-ini-faktanya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/glamping_vs_camping.png"
+                            alt="Jadwal Event Batu 2026: Festival Wajib Dikunjungi">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="jadwal-event-batu-2026-festival-wajib-dikunjungi.html"
+                                    class="text-dark text-decoration-none">Jadwal Event Batu 2026: Festival Wajib Dikunjungi</a></h4>
+                            <p class="text-muted small">Jadwal event Batu 2026 mencakup festival budaya seperti Batu Art Flower Festival, Batu Culture Festival, serta agenda sport tourism seperti Panderman Gravity Park Downhill.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="jadwal-event-batu-2026-festival-wajib-dikunjungi.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/City_lights_view_202603311549_11zon.webp"
+                            alt="Kalender Wisata Batu: Cara Membaca Jadwal Event 2026">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kalender-wisata-batu-cara-membaca-jadwal-event-2026.html"
+                                    class="text-dark text-decoration-none">Kalender Wisata Batu: Cara Membaca Jadwal Event 2026</a></h4>
+                            <p class="text-muted small">Kalender wisata Batu adalah daftar resmi agenda pariwisata Kota Batu yang disusun Dinas Pariwisata setiap tahun, mencakup event budaya, kuliner, dan olahraga wisata.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kalender-wisata-batu-cara-membaca-jadwal-event-2026.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/support_fotografi_sunrise.png"
+                            alt="Kalender Event Wisata Batu 2026: Jadwal Lengkap Sepanjang Tahun">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kalender-event-wisata-batu-2026-jadwal-lengkap-sepanjang-tahun.html"
+                                    class="text-dark text-decoration-none">Kalender Event Wisata Batu 2026: Jadwal Lengkap Sepanjang Tahun</a></h4>
+                            <p class="text-muted small">Kalender event Kota Batu 2026 berisi 30 agenda wisata resmi yang ditetapkan Dinas Pariwisata Kota Batu, dengan sejumlah festival unggulan tetap dipertahankan sepanjang tahun.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kalender-event-wisata-batu-2026-jadwal-lengkap-sepanjang-tahun.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/promo_fotografi_kemping.png"
+                            alt="Kesalahan Umum Memilih Vendor Outbound Perusahaan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kesalahan-umum-memilih-vendor-outbound-perusahaan.html"
+                                    class="text-dark text-decoration-none">Kesalahan Umum Memilih Vendor Outbound Perusahaan</a></h4>
+                            <p class="text-muted small">Kesalahan umum memilih vendor outbound perusahaan meliputi terlalu fokus pada harga murah, mengabaikan standar keselamatan, dan tidak memeriksa detail kontrak sebelum kegiatan berlangsung.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kesalahan-umum-memilih-vendor-outbound-perusahaan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133415_834_6_11zon.webp"
+                            alt="Biaya Outbound Perusahaan di Malang, Ini Faktornya">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="biaya-outbound-perusahaan-di-malang-ini-faktornya.html"
+                                    class="text-dark text-decoration-none">Biaya Outbound Perusahaan di Malang, Ini Faktornya</a></h4>
+                            <p class="text-muted small">Biaya outbound perusahaan di Malang dipengaruhi oleh jumlah peserta, jenis fasilitas, durasi kegiatan, kualifikasi fasilitator, dan tingkat kompleksitas aktivitas yang dipilih.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="biaya-outbound-perusahaan-di-malang-ini-faktornya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133805_238_28_11zon.webp"
+                            alt="Manfaat Outbound Perusahaan bagi Tim Kerja">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="manfaat-outbound-perusahaan-bagi-tim-kerja.html"
+                                    class="text-dark text-decoration-none">Manfaat Outbound Perusahaan bagi Tim Kerja</a></h4>
+                            <p class="text-muted small">Manfaat outbound perusahaan bagi tim kerja meliputi peningkatan komunikasi, kepercayaan antaranggota, kemampuan kepemimpinan, serta suasana kerja yang lebih segar setelah aktivitas di luar kantor.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="manfaat-outbound-perusahaan-bagi-tim-kerja.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1547_4_11zon.webp"
+                            alt="Cara Memilih Vendor Outbound Perusahaan di Batu Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="cara-memilih-vendor-outbound-perusahaan-di-batu-malang.html"
+                                    class="text-dark text-decoration-none">Cara Memilih Vendor Outbound Perusahaan di Batu Malang</a></h4>
+                            <p class="text-muted small">Memilih vendor outbound perusahaan di Batu Malang membutuhkan checklist procurement yang jelas, mulai dari legalitas usaha, portofolio klien korporat, standar keselamatan, hingga transparansi biaya.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="cara-memilih-vendor-outbound-perusahaan-di-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1484_12_11zon.webp"
+                            alt="Estimasi Biaya Trip Multi-Hari di Jawa Timur">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="estimasi-biaya-trip-multi-hari-di-jawa-timur.html"
+                                    class="text-dark text-decoration-none">Estimasi Biaya Trip Multi-Hari di Jawa Timur</a></h4>
+                            <p class="text-muted small">Estimasi biaya trip multi-hari di Jawa Timur ditentukan oleh empat komponen utama, yaitu transportasi, akomodasi, tiket masuk destinasi, dan konsumsi selama perjalanan berlangsung.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="estimasi-biaya-trip-multi-hari-di-jawa-timur.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/digital_detox_glamping.png"
+                            alt="Cara Menyusun Itinerary Trip Multi-Hari di Jatim">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="cara-menyusun-itinerary-trip-multi-hari-di-jatim.html"
+                                    class="text-dark text-decoration-none">Cara Menyusun Itinerary Trip Multi-Hari di Jatim</a></h4>
+                            <p class="text-muted small">Menyusun itinerary trip multi-hari Jatim dilakukan dengan menentukan destinasi utama, mengurutkan rute berdasarkan arah geografis, lalu menyesuaikan waktu menginap dan transportasi.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="cara-menyusun-itinerary-trip-multi-hari-di-jatim.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Wanita_memotret_matahari_202603311633_11zon.webp"
+                            alt="Contoh Itinerary Trip Multi-Hari Jatim Rute Malang-Bromo-Ijen">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="contoh-itinerary-trip-multi-hari-jatim-malang-bromo-ijen.html"
+                                    class="text-dark text-decoration-none">Contoh Itinerary Trip Multi-Hari Jatim: Rute Malang-Bromo-Ijen</a></h4>
+                            <p class="text-muted small">Itinerary trip multi-hari Jatim rute Malang-Bromo-Ijen adalah contoh susunan perjalanan empat hari yang menggabungkan wisata kota, alam pegunungan, dan kawah vulkanik.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="contoh-itinerary-trip-multi-hari-jatim-malang-bromo-ijen.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133435_225_8_11zon.webp"
+                            alt="Trip Multi-Hari Jatim">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="trip-multi-hari-jatim-kenapa-semakin-banyak-wisatawan-memilihnya.html"
+                                    class="text-dark text-decoration-none">Trip Multi-Hari Jatim: Kenapa Semakin Banyak
+                                    Wisatawan Memilihnya</a></h4>
+                            <p class="text-muted small">Trip multi-hari Jatim adalah pola perjalanan wisata di Jawa Timur
+                                yang berlangsung dua hari atau lebih, menggantikan pola kunjungan singkat satu hari.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="trip-multi-hari-jatim-kenapa-semakin-banyak-wisatawan-memilihnya.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/cinematic_video_glamping_indo.png"
+                            alt="Pemuda merekam video cinematic di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-video-cinematic-glamping-hp-batu-malang.html"
+                                    class="text-dark text-decoration-none">Tips Bikin Video Cinematic Glamping Pakai HP
+                                    untuk Reels dan TikTok</a></h4>
+                            <p class="text-muted small">Ciptakan konten liburan kemping yang memukau hanya bermodalkan
+                                smartphone Anda. Pelajari teknik dasar pengambilan videonya.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-video-cinematic-glamping-hp-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/aesthetic_camping_outfit_indo.png"
+                            alt="Wanita cantik mengenakan outfit kemping estetik dan hangat di pegunungan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-memilih-outfit-kemping-estetik-batu.html"
+                                    class="text-dark text-decoration-none">Tips Memilih Outfit Kemping yang Estetik
+                                    Namun Tetap Hangat di Batu Malang</a></h4>
+                            <p class="text-muted small">Ingin tampil fashionable saat glamping di puncak Batu tanpa
+                                takut kedinginan? Ikuti panduan memilih pakaian layering estetik ini.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-memilih-outfit-kemping-estetik-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/City_lights_view_202603311549_11zon.webp"
+                            alt="Gemerlap city lights malam hari Kota Batu Malang dilihat dari wilayah perkemahan bukit">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="pesona-city-lights-batu-dari-tenda.html"
+                                    class="text-dark text-decoration-none">Menikmati Permadani Cahaya: Pesona City
+                                    Lights Kota Batu dari Ketinggian Tenda</a></h4>
+                            <p class="text-muted small">Temukan alasan mengapa panorama City Lights (cahaya kota) Batu
+                                dari atas bukit selalu memukau. Hadirkan nuansa estetik melihat gemerlap lautan malam
+                                dari dekat.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="pesona-city-lights-batu-dari-tenda.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Toddler_laughing_playing_202603311608_11zon.webp"
+                            alt="Balita tertawa riang bermain-main di area perkemahan alam terbuka">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="manfaat-alam-sebagai-taman-bermain-balita.html"
+                                    class="text-dark text-decoration-none">Bermain Sambil Belajar: Mengapa Alam Adalah
+                                    Taman Bermain Terbaik Bagi Balita Era Digital</a></h4>
+                            <p class="text-muted small">Sadarkah Anda seberapa sering balita Anda terpapar layar gawai?
+                                Temukan manfaat luar biasa alam sebagai taman bermain terbaik untuk melatih motorik anak
+                                di area Glamping Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="manfaat-alam-sebagai-taman-bermain-balita.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Man_and_woman_202603311537_11zon.webp"
+                            alt="Pasangan muda lokal menikmati suasana kemping romantis">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="ide-kencan-romantis-glamping-batu-malang.html"
+                                    class="text-dark text-decoration-none">Ide Kencan Romantis: Mengapa Glamping di Batu
+                                    Lebih Berkesan Momennya</a></h4>
+                            <p class="text-muted small">Ciptakan kenangan bulan madu atau anniversary tak terlupakan.
+                                Temukan alasan dan tips mengapa kencan keromantisan di alam jadi solusi terbaik
+                                mendalami relasi.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="ide-kencan-romantis-glamping-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Woman_in_winter_202603311549_11zon.webp"
+                            alt="Wanita dengan jaket tebal menikmati suasana pagi yang dingin di pegunungan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="ritual-pagi-pegunungan-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Ritual Pagi Pegunungan: Memulai Hari dengan
+                                    Energi Positif di Ketinggian Batu</a></h4>
+                            <p class="text-muted small">Bangun pagi di alam pegunungan adalah pengalaman magis. Temukan
+                                ide "slow morning routine" terbaik di Batu Sunrise Camp untuk mereset energi Anda dari
+                                penatnya kota.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="ritual-pagi-pegunungan-batu-sunrise-camp.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="City_lights_from_202603311621_11zon.webp"
+                            alt="Berkemah di pegunungan dengan tenang tanpa gangguan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-melindungi-diri-serangga-kemping-batu.html"
+                                    class="text-dark text-decoration-none">Tips Ampuh Melindungi Diri dari Gigitan
+                                    Serangga Saat Kemping di Batu</a></h4>
+                            <p class="text-muted small">Jangan biarkan serangga merusak istirahat Anda. Simak
+                                perlindungan paling efektif untuk mencegah gatal dan serangan agas kemah di tanah Batu
+                                perbukitan ini.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-melindungi-diri-serangga-kemping-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="Man_and_woman_202603311537_11zon.webp"
+                            alt="Pasangan menggunakan perlengkapan naik gunung di alam">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-memilih-sepatu-hiking-kemping-batu.html"
+                                    class="text-dark text-decoration-none">Tips Memilih Sepatu Hiking yang Tepat untuk
+                                    Berkemah di Batu</a></h4>
+                            <p class="text-muted small">Pastikan langkah Anda aman dan nyaman di medan pegunungan.
+                                Ketahui cara terbaik memilih alas kaki untuk kemping di Kota Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-memilih-sepatu-hiking-kemping-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/elderly_couple_glamping.png"
+                            alt="Pasangan lansia Indonesia menikmati teh di depan tenda glamping">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kemping-masa-pensiun-glamping-lansia-batu.html"
+                                    class="text-dark text-decoration-none">Kemping di Masa Pensiun: Menikmati Usia Emas
+                                    dengan Nyaman di Alam Terbuka Batu</a></h4>
+                            <p class="text-muted small">Siapa bilang kemping hanya untuk anak muda? Temukan panduan dan
+                                tips lengkap menikmati masa pensiun liburan ramah lansia di area Batu Sunrise Camp.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kemping-masa-pensiun-glamping-lansia-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/glamping_vs_camping.png"
+                            alt="Perbandingan Tenda Tradisional dan Tenda Glamping Mewah">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="glamping-vs-kemping-tradisional-batu-malang.html"
+                                    class="text-dark text-decoration-none">Glamping vs Kemping Tradisional: Mana yang
+                                    Cocok Untuk Liburan Anda?</a></h4>
+                            <p class="text-muted small">Bimbang memilih antara Glamping yang mewah dan Kemping
+                                Tradisional yang otentik? Temukan kelebihan, kekurangan, dan gaya liburan alam yang
+                                paling pas untuk Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="glamping-vs-kemping-tradisional-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Night_city_view_202603311633_11zon.webp"
+                            alt="Pemandangan langit malam berbintang dan city lights dari Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-fotografi-milky-way-malam-di-batu.html"
+                                    class="text-dark text-decoration-none">Panduan Fotografi Milky Way Saat Kemping:
+                                    Cara Mengabadikan Galaksi dari Batu Sunrise Camp</a></h4>
+                            <p class="text-muted small">Pelajari teknik dasar dan setting kamera untuk memotret Bima
+                                Sakti. Lengkap dengan tabel peralatan, tips komposisi, dan panduan editing di Lightroom.
+                            </p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-fotografi-milky-way-malam-di-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/sunrise_hike_indonesia.png"
+                            alt="Rombongan pendaki muda Indonesia merayakan di puncak saat matahari terbit">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-hiking-pemula-batu-malang.html"
+                                    class="text-dark text-decoration-none">Panduan Hiking Pemula di Batu Malang: Mulai
+                                    dari Nol hingga Puncak Bersama Komunitas</a></h4>
+                            <p class="text-muted small">Panduan lengkap hiking perdana di Batu Malang: jalur trekking
+                                terbaik, persiapan fisik, checklist perlengkapan wajib, hingga tips menikmati sunrise di
+                                puncak.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-hiking-pemula-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133501_187_11zon_25_11zon.webp"
+                            alt="Rombongan tim melakukan outbound di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="outbound-team-building-seru-di-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Outbound Team Building Seru di Batu Sunrise
+                                    Camp: Solusi Terbaik Gathering Kantor yang Berkesan</a></h4>
+                            <p class="text-muted small">Alam pegunungan Batu menjadi latar terbaik mempererat kekompakan
+                                tim. Temukan pilihan aktivitas outbound, fasilitas korporat, dan manfaat nyata bagi tim
+                                Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="outbound-team-building-seru-di-batu-sunrise-camp.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/camping_cooking_family.png"
+                            alt="Keluarga bahagia memasak bersama di alam Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="memasak-bersama-keluarga-di-alam-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Seni Memasak Bersama Keluarga di Alam:
+                                    Aktivitas Bonding Paling Berkesan di Batu Sunrise Camp</a></h4>
+                            <p class="text-muted small">Temukan mengapa memasak bersama di alam terbuka adalah aktivitas
+                                bonding terbaik. Dilengkapi resep simpel, tips aman, dan momen makan malam di bawah
+                                bintang.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="memasak-bersama-keluarga-di-alam-batu-sunrise-camp.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Toddler_laughing_playing_202603311608_11zon.webp"
+                            alt="Anak Kecil Tertawa Bermain di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="ulang-tahun-anak-glamping-alam-batu.html"
+                                    class="text-dark text-decoration-none">Ulang Tahun Edukatif: Rayakan Pertambahan
+                                    Usia Buah Hati dengan Konsep Glamping Alam</a></h4>
+                            <p class="text-muted small">Bosan perayaan ulang tahun di restoran biasa? Coba konsep pesta
+                                tematik alam terbuka lengkap treasure hunt, potong kue, dan menginap glamping mewah di
+                                Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="ulang-tahun-anak-glamping-alam-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/digital_detox_glamping.png"
+                            alt="Membaca buku di atas hammock menikmati Digital Detox di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-digital-detox-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Lepaskan Diri dari Gawai: Panduan Digital
+                                    Detox Sempurna di Batu Sunrise Camp</a></h4>
+                            <p class="text-muted small">Saatnya puasa notifikasi. Bebaskan pikiran Anda dengan paket
+                                relaksasi dari jeratan gawai elektronik dan rasakan kesunyian hakiki membaca buku di
+                                rimbunnya pinus.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-digital-detox-batu-sunrise-camp.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/rainy_glamping_mood.png" alt="Suasana tenang glamping saat hujan turun">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="syahdunya-glamping-musim-hujan-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Syahdunya Glamping di Musim Hujan: Menikmati
+                                    Alam Batu Tanpa Takut Kebasahan</a></h4>
+                            <p class="text-muted small">Jangan biarkan musim hujan membatalkan rencana liburan Anda.
+                                Rasakan pengalaman syahdu menikmati glamping mewah hangat dan kedap air di Batu Sunrise
+                                Camp.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="syahdunya-glamping-musim-hujan-batu-sunrise-camp.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/morning_yoga_glamping.png"
+                            alt="Wanita melakukan yoga pagi berlatar pegunungan di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="healing-yoga-pagi-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Healing Maksimal: Relaksasi Yoga Pagi
+                                    Berlatar Pegunungan di Batu Sunrise Camp</a></h4>
+                            <p class="text-muted small">Kembalikan ketenangan dan kesegaran batin Anda melalui rutinitas
+                                stretching subuh bersama panorama sejuk pegunungan di depan glamping Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="healing-yoga-pagi-batu-sunrise-camp.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/pet_friendly_glamping.png"
+                            alt="Wanita bersama anjing Golden Retriever di Glamping Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="pet-friendly-kemping-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Destinasi Pet-Friendly Terbaik: Serunya
+                                    Mengajak Anabul Kemping di Batu Sunrise Camp</a></h4>
+                            <p class="text-muted small">Tidak perlu meninggalkan anabul di pet shop! Nikmati glamping
+                                mewah dan seru bersama dengan anjing atau kucing kesayangan di Batu Sunrise Camp.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="pet-friendly-kemping-batu-sunrise-camp.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/romantic_glamping_couple.png"
+                            alt="Pasangan di Glamping Romantis Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="pengalaman-glamping-romantis-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Pengalaman Glamping Romantis di Batu Sunrise
+                                    Camp: Cara Baru Rayakan Momen Spesial</a></h4>
+                            <p class="text-muted small">Rayakan hari jadi Anda bersama pasangan di Batu Sunrise Camp.
+                                Glamping mewah dengan view city light dan gemerlap bintang malam menunggu Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="pengalaman-glamping-romantis-batu-sunrise-camp.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/bbq_night_camp.png" alt="Barbeque Malam di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-seru-barbeque-malam-kamp-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Panduan Seru Barbeque Malam Kamp di Batu
+                                    Sunrise Camp: Hangatkan Suasana Keluarga</a></h4>
+                            <p class="text-muted small">Menikmati malam di Batu Sunrise Camp tidak lengkap tanpa
+                                barbeque. Simak panduan dan tips seru BBQ bersama keluarga ditemani city light Malang.
+                            </p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-seru-barbeque-malam-kamp-batu-sunrise-camp.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Man_working_on_202603311621_11zon.webp"
+                            alt="Kantor Alam Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="fasilitas-modern-wisata-keluarga-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Fasilitas 'Kantor Alam' di Batu Sunrise Camp:
+                                    Solusi Ampuh Buat Kamu yang Burnout Kerja!</a></h4>
+                            <p class="text-muted small">Membayangkan menyeruput kopi hangat memandang pohon pinus,
+                                sementara pekerjaan terpantau lewat WiFi kencang, bukanlah sebuah dosa besar.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="fasilitas-modern-wisata-keluarga-batu-sunrise-camp.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Toddler_laughing_playing_202603311608_11zon.webp"
+                            alt="Kantor Alam di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="fasilitas-modern-wisata-edukasi-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Capek Kerja Bagai Kuda? Intip Fasilitas
+                                    'Kantor Alam' di Batu Sunrise Camp!</a></h4>
+                            <p class="text-muted small">Jangan sampai Anda mencapai titik burnout total. Nikmati
+                                work-life balance dari tenda mewah dengan view gunung, fasilitas air hangat, dan WiFi
+                                kencang.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="fasilitas-modern-wisata-edukasi-batu-sunrise-camp.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Woman_in_winter_202603311549_11zon.webp"
+                            alt="Self Healing di Batu Sunrise Camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="self-healing-batu-sunrise-camp-glamping-praktis.html"
+                                    class="text-dark text-decoration-none">Kerjaan Numpuk Bikin Burnout? Saatnya
+                                    Self-Healing di Batu Sunrise Camp!</a></h4>
+                            <p class="text-muted small">Jangan tunggu sampai benar-benar tumbang gara-gara burnout.
+                                Segera rencanakan liburan self-healing tanpa ribet dengan fasilitas glamping premium di
+                                Batu Sunrise Camp sebelum kehabisan spot.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="self-healing-batu-sunrise-camp-glamping-praktis.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/Tenda_glamping_di_202603311537_11zon_11zon.webp"
+                            alt="Batu Sunrise Camp Glamping Keluarga">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="batu-sunrise-camp-glamping-keluarga-modern.html"
+                                    class="text-dark text-decoration-none">Nikmati Sensasi Camp Mewah di Batu Sunrise
+                                    Camp Sebelum Slotnya Full!</a></h4>
+                            <p class="text-muted small">Menunda momen istirahat berkualitas bersama keluarga atau
+                                pasangan hanya akan membuat rasa lelah makin menumpuk. Booking sekarang!</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="batu-sunrise-camp-glamping-keluarga-modern.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1546_3_11zon.webp" alt="Matras Anti Pegal">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-memilih-matras-kemping-anti-pegal.html"
+                                    class="text-dark text-decoration-none">Panduan Memilih Matras Kemping Agar Punggung
+                                    Tidak Nyeri Saat Bangun</a></h4>
+                            <p class="text-muted small">Sleeping Bag mahal tak akan berguna tanpa pondasi alas matras
+                                yang baik. Ini rahasia mendapatkan kasur busa setara penginapan di dalam tenda Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-memilih-matras-kemping-anti-pegal.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133501_187_11zon_25_11zon.webp"
+                            alt="Bekal Sayur Segar Kemping">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-membawa-bekal-sayur-segar-kemping.html"
+                                    class="text-dark text-decoration-none">Tips Membawa Bekal Sayuran Segar Saat Kemping
+                                    Tanpa Kulkas</a></h4>
+                            <p class="text-muted small">Tak selamanya menu kemping hanya mie instan dan sosis. Ketahui
+                                trik rahasia menyimpan seledri dan sawi awet segar di alam bebas Gunung Batu.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-membawa-bekal-sayur-segar-kemping.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1540_16_11zon.webp" alt="Mencegah Tenda Banjir">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="cara-mencegah-tenda-tergenang-air-hujan-batu.html"
+                                    class="text-dark text-decoration-none">Cara Praktis Mencegah Tenda Tergenang Air
+                                    Hujan di Gunung Batu</a></h4>
+                            <p class="text-muted small">Jangan biarkan liburan alam Anda berubah menjadi wahana kolam
+                                renang berlumpur. Teknik parit dan setel flysheet rahasia ada di artikel ini.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="cara-mencegah-tenda-tergenang-air-hujan-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121411_35_11zon.webp" alt="Lampu Penerangan Tenda Anti Silau">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rekomendasi-lampu-penerangan-tenda-kemping.html"
+                                    class="text-dark text-decoration-none">Rekomendasi Lampu Penerangan Tenda Anti Silau
+                                    untuk Tidur Nyenyak</a></h4>
+                            <p class="text-muted small">Cahaya putih terang LED justru merusak hormon tidur Anda di alam
+                                bebas. Kenali jenis pijar lentera kuno yang membiusnya.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rekomendasi-lampu-penerangan-tenda-kemping.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121251_11zon_34_11zon.webp" alt="Kotak P3K Darurat">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-kotak-p3k-darurat-kemping-batu.html"
+                                    class="text-dark text-decoration-none">Panduan Lengkap Meracik Kotak P3K Darurat
+                                    Kemping di Hutan Pinus Batu</a></h4>
+                            <p class="text-muted small">Luka gores ranting dan masuk angin adalah musuh utama pekemah.
+                                Ketahui 7 obat anti repot yang sangat diandalkan nyawa kemah Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-kotak-p3k-darurat-kemping-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121105_11zon_32_11zon.webp" alt="Camilan Malam Kemah">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rekomendasi-camilan-malam-penghangat-tubuh-kemping.html"
+                                    class="text-dark text-decoration-none">Rekomendasi Camilan Malam Penghangat Tubuh di
+                                    Samping Api Unggun</a></h4>
+                            <p class="text-muted small">Simak resep kudapan dan minuman luar ruangan asyik yang tidak
+                                hanya mengenyangkan lambung, melainkan menaikkan suhu tubuh Anda belasan persen.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rekomendasi-camilan-malam-penghangat-tubuh-kemping.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1487_14_11zon.webp" alt="Sleeping Bag di Kemah">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-memilih-sleeping-bag-suhu-dingin-batu.html"
+                                    class="text-dark text-decoration-none">Cara Memilih Sleeping Bag Tepat untuk Suhu
+                                    Udara Malam di Gunung Batu</a></h4>
+                            <p class="text-muted small">Tidur pulas di alam terbuka sangat bergantung pada sleeping bag
+                                yang membalut Anda. Pahami ragam bahan insulasi pelindung hawa anjlok ini.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-memilih-sleeping-bag-suhu-dingin-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121754_38_11zon.webp" alt="Hp alat kemah drop">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-menghemat-baterai-kamera-hp-saat-kemping.html"
+                                    class="text-dark text-decoration-none">Tips Menjaga Baterai Kamera dan HP Agar Awet
+                                    Saat Kemping di Cuaca Dingin</a></h4>
+                            <p class="text-muted small">Suhu nol derajat pegunungan Batu menyedot energi Lithium-Ion
+                                dalam hitungan jam. Pelajari metode ekstrem menjaga daya elektronik Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-menghemat-baterai-kamera-hp-saat-kemping.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133819_757_29_11zon.webp" alt="Meditasi Alam">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="manfaat-meditasi-alam-pegunungan-batu.html"
+                                    class="text-dark text-decoration-none">Manfaat Meditasi Alam di Pegunungan Batu
+                                    untuk Hilangkan Stres Kerja</a></h4>
+                            <p class="text-muted small">Rasakan manfaat selebrasi ketenangan sejati. Pelajari panduan
+                                meditasi kesadaran singkat berlatar belakang udara sejuk.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="manfaat-meditasi-alam-pegunungan-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1486_13_11zon.webp" alt="Ngopi di kemping">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-membuat-kopi-nikmat-saat-kemping.html"
+                                    class="text-dark text-decoration-none">Cara Meracik Kopi Pegunungan yang Nikmat Saat
+                                    Suhu Turun di Batu</a></h4>
+                            <p class="text-muted small">Perkaya ritual kemping dengan racikan kopi kental buatan tangan.
+                                Kenali perlengkapan portabel tanpa beban berlebih.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-membuat-kopi-nikmat-saat-kemping.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133430_445_7_11zon.webp" alt="Camping keluarga anak gembira">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="cara-mengatasi-anak-bosan-saat-kemping-keluarga.html"
+                                    class="text-dark text-decoration-none">Cara Efektif Mengatasi Kejenuhan Anak Saat
+                                    Kemping di Batu</a></h4>
+                            <p class="text-muted small">Ketahui strategi jitu agar anak asyik dan tidak bosan selama
+                                mengikuti liburan kemping keluarga di kawasan pegunungan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="cara-mengatasi-anak-bosan-saat-kemping-keluarga.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1541_17_11zon.webp" alt="Pakaian hujan kemping gunung">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-memilih-pakaian-kemping-musim-hujan.html"
+                                    class="text-dark text-decoration-none">Panduan Memilih Pakaian Kemping Tepat Saat
+                                    Musim Hujan di Batu</a></h4>
+                            <p class="text-muted small">Jangan biarkan terjangan hujan menghentikan hobi kemping Anda.
+                                Kuasai sistem pakaian anti air tiga lapis wajib ini.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-memilih-pakaian-kemping-musim-hujan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1542_1_11zon.webp" alt="Solo Camping Aman Batu Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-solo-camping-aman-nyaman-batu-malang.html"
+                                    class="text-dark text-decoration-none">Panduan Lengkap Solo Camping Aman dan Nyaman
+                                    di Batu Malang</a></h4>
+                            <p class="text-muted small">Rancangan keberanian wisata mandiri pencarian jati diri yang
+                                sepenuhnya terjalin dengan persiapan protokol aman liar.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-solo-camping-aman-nyaman-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1488_15_11zon.webp"
+                            alt="Tips mengatasi dingin cuaca ekstrim kemping gunung">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="cara-mengatasi-udara-dingin-kemping-gunung-batu.html"
+                                    class="text-dark text-decoration-none">Cara Ampuh Mengatasi Udara Dingin Saat
+                                    Kemping di Pegunungan Batu</a></h4>
+                            <p class="text-muted small">Jangan sampai suhu jatuh merusak liburan, bekali diri dengan
+                                pemahaman teknik 3 layer perlindungan suhu badan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="cara-mengatasi-udara-dingin-kemping-gunung-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/hero_10_11zon.webp" alt="Matahari terbit Batu Malang sunrise camp">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rahasia-mendapatkan-foto-sunrise-batu-malang.html"
+                                    class="text-dark text-decoration-none">Rahasia Mendapatkan Foto Sunrise Terbaik Saat
+                                    Kemping di Batu Malang</a></h4>
+                            <p class="text-muted small">Panduan teknis bagi pemula untuk menembak momen golden hour
+                                fajar di dataran tinggi.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rahasia-mendapatkan-foto-sunrise-batu-malang.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121509_37_11zon.webp"
+                            alt="Kegiatan api unggun di keluarga Batu">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="pentingnya-api-unggun-saat-kemping-keluarga.html"
+                                    class="text-dark text-decoration-none">Mengapa Api Unggun Wajib Ada Saat Event
+                                    Kemping Keluarga di Batu?</a></h4>
+                            <p class="text-muted small">Temukan rahasia kelenturan psikologis di balik teater alam di
+                                tengah kemping keluarga Anda.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="pentingnya-api-unggun-saat-kemping-keluarga.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121105_11zon_32_11zon.webp"
+                            alt="Tenda kemah aman diterpa angin di Batu">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-mendirikan-tenda-kuat-angin-kemping-batu.html"
+                                    class="text-dark text-decoration-none">Tips Tepat Mendirikan Tenda Kemping yang
+                                    Kokoh Hadapi Angin Pegunungan Batu</a></h4>
+                            <p class="text-muted small">Panduan teknis dan dasar keselamatan menggunakan tali pancang
+                                agar tenda Anda kuat semalaman.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-mendirikan-tenda-kuat-angin-kemping-batu.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1543_2_11zon.webp" alt="Ice breaking outbound kemah rombongan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="ide-permainan-outbound-seru-kemping-rombongan.html"
+                                    class="text-dark text-decoration-none">7 Ide Permainan Outbound Seru Saat Kemping
+                                    Rombongan & Keluarga</a></h4>
+                            <p class="text-muted small">Kegiatan peretas kecanggungan (ice breaking) penambah gelak tawa
+                                interaktif saat event lapangan luas.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="ide-permainan-outbound-seru-kemping-rombongan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_1540_16_11zon.webp"
+                            alt="Makrab siswa Bisnis Digital di Batu Sunrise Camp Malang dengan view city light">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="keseruan-makrab-siswa-bisnis-digital-batu-sunrise-camp.html"
+                                    class="text-dark text-decoration-none">Keseruan Tak Terlupakan: Paket Berkemah
+                                    Makrab Siswa Bisnis Digital di Batu Sunrise Camp</a></h4>
+                            <p class="text-muted small">Experiential learning, outbound, view city light, dan
+                                sunrise magis untuk Makrab mahasiswa Bisnis Digital.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="keseruan-makrab-siswa-bisnis-digital-batu-sunrise-camp.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/hero2_11_11zon.webp"
+                            alt="Camping ground luas di Batu Sunrise Camp Malang untuk rombongan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="pilihan-paket-camping-batu-sunrise-camp-ground-luas.html"
+                                    class="text-dark text-decoration-none">Cari Ground Luas? Pilihan Paket Camping
+                                    Batu Sunrise Camp Malang</a></h4>
+                            <p class="text-muted small">Solusi event rombongan besar dan outbound dengan area lapang,
+                                instruktur berpengalaman, dan view memukau.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="pilihan-paket-camping-batu-sunrise-camp-ground-luas.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121105_11zon_32_11zon.webp" alt="Tips kemping aman musim hujan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-kemping-aman-nyaman-musim-hujan.html"
+                                    class="text-dark text-decoration-none">Tips Kemping
+                                    Aman & Nyaman di Musim Hujan</a></h4>
+                            <p class="text-muted small">Mempersiapkan tenda anti badai dan perlengkapan hangat agar
+                                tetap estetik dan elegan.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-kemping-aman-nyaman-musim-hujan.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121251_11zon_34_11zon.webp"
+                            alt="Manfaat liburan kemping keluarga">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="5-manfaat-rahasia-liburan-kemping-bersama-keluarga.html"
+                                    class="text-dark text-decoration-none">5 Manfaat
+                                    Rahasia Liburan Kemping Bersama Keluarga</a></h4>
+                            <p class="text-muted small">Mengurangi screen-time anak sedari dini dan membangun ikatan
+                                keluarga lewat alam bebas.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="5-manfaat-rahasia-liburan-kemping-bersama-keluarga.html"
+                                class="text-decoration-none" style="color: var(--sunset-orange);font-weight:600;">Baca
+                                Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121809_11zon_39_11zon.webp" alt="Rekomendasi masakan kemping">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="rekomendasi-menu-santap-alam-praktis-lezat.html"
+                                    class="text-dark text-decoration-none">Rekomendasi
+                                    Menu Santap Alam Praktis & Lezat</a></h4>
+                            <p class="text-muted small">Tinggalkan indomie sejenak, ini cara memasak daging grill ala
+                                glamping sultan yang simpel.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="rekomendasi-menu-santap-alam-praktis-lezat.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218122054_11zon_42_11zon.webp" alt="Peralatan kemping standar">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="checklist-lengkap-peralatan-kemping-pemula.html"
+                                    class="text-dark text-decoration-none">Checklist
+                                    Lengkap Peralatan Kemping Pemula</a></h4>
+                            <p class="text-muted small">Jangan sampai kedinginan atau kelaparan. Ini standar bawaan yang
+                                wajib jika kemping mandiri.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="checklist-lengkap-peralatan-kemping-pemula.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133501_187_11zon_25_11zon.webp"
+                            alt="Panduan etika kemping leave no trace">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="kemping-tanpa-jejak-leave-no-trace.html"
+                                    class="text-dark text-decoration-none">Prinsip
+                                    'Leave No Trace': Kemping Tanpa Jejak</a></h4>
+                            <p class="text-muted small">Panduan pelestarian alam bagi pecinta kemping agar surga dunia
+                                kita tetap terjaga.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="kemping-tanpa-jejak-leave-no-trace.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218120718_11zon_31_11zon.webp"
+                            alt="Panduan memilih lokasi kemping terbaik di Batu Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-memilih-lokasi-kemping-terbaik.html"
+                                    class="text-dark text-decoration-none">Panduan
+                                    Memilih Lokasi Kemping Terbaik di Batu Malang</a></h4>
+                            <p class="text-muted small">Jangan asal pilih spot! Pelajari kriteria lokasi ideal agar
+                                pengalaman kemping Anda sempurna dan aman.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-memilih-lokasi-kemping-terbaik.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121809_11zon_39_11zon.webp"
+                            alt="Aktivitas seru saat kemping di Batu Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="7-aktivitas-seru-saat-kemping.html"
+                                    class="text-dark text-decoration-none">7 Aktivitas
+                                    Seru yang Wajib Dilakukan Saat Kemping di Batu</a></h4>
+                            <p class="text-muted small">Dari hiking sore, api unggun, hingga memasak bersama di udara
+                                segar pegunungan Batu Malang.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="7-aktivitas-seru-saat-kemping.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG20260218121251_11zon_34_11zon.webp"
+                            alt="Tips kemping bersama anak yang aman dan menyenangkan">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="tips-kemping-bersama-anak.html"
+                                    class="text-dark text-decoration-none">Tips
+                                    Kemping Bersama Anak: Petualangan Aman & Menyenangkan</a></h4>
+                            <p class="text-muted small">Investasi kenangan terbaik untuk si kecil. Panduan lengkap agar
+                                kemping keluarga berjalan sempurna.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="tips-kemping-bersama-anak.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-card h-100 d-flex flex-column pb-3">
+                        <img src="assets/img/IMG_20260218_133827_382_11zon_30_11zon.webp"
+                            alt="Panduan stargazing melihat bintang saat kemping Batu Malang">
+                        <div class="p-3 flex-grow-1">
+                            <h4 class="h5 mt-2"><a href="panduan-stargazing-menikmati-langit-malam.html"
+                                    class="text-dark text-decoration-none">Panduan
+                                    Stargazing: Menikmati Langit Malam Saat Kemping di Batu</a></h4>
+                            <p class="text-muted small">Langit malam Batu Malang adalah salah satu terbersih di Jawa
+                                Timur. Pelajari cara menikmatinya secara maksimal.</p>
+                        </div>
+                        <div class="p-3 pt-0">
+                            <a href="panduan-stargazing-menikmati-langit-malam.html" class="text-decoration-none"
+                                style="color: var(--sunset-orange);font-weight:600;">Baca Selengkapnya <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="promo-section-cta">
+                <span class="promo-badge">Edukasi & Promo</span>
+                <h3>Dapatkan Update Tips Kemping Eksklusif</h3>
+                <p>Jadilah yang pertama tahu tentang spot kemping baru dan promo paket bulanan kami. Hubungi kami untuk
+                    bergabung dalam komunitas pecinta alam Wisata Kemping Batu.</p>
+                <a href="https://wa.me/6281239225692?text=Halo%20saya%20ingin%20gabung%20komunitas%20kemping"
+                    class="btn-cta btn-lg">Hubungi via WhatsApp <i class="fab fa-whatsapp ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-logo">
+                        <img src="assets/img/logo.png" alt="KampBatu Logo">
+                        <span>KampBatu</span>
+                    </div>
+                    <p>Wisata Kemping Batu Malang memberikan Anda harmoni antara alam dan kenyamanan elegan. Destinasi
+                        nomor satu untuk penyembuhan jiwa di Jawa Timur.</p>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h5>Tautan Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="packages.html">Paket Layanan</a></li>
+                        <li class="mb-2"><a href="blog.html">Blog Artikel</a></li>
                     </ul>
                 </div>
-                
-                <a href="package.html" class="text-white text-decoration-none hover:underline">Paket</a>
-                <a href="blog.html" class="text-white text-decoration-none border-bottom border-2 border-white">Blog</a>
-                <a href="https://wa.me/6288989643555" class="text-white text-decoration-none">Kontak</a>
-            </nav>
-            
-            <a href="https://wa.me/6288989643555" class="btn btn-dark text-white px-4 py-2 border-black-2 shadow-neo-4 neo-btn fw-bold rounded-3 text-decoration-none">
-                WhatsApp
-            </a>
-        </div>
-    </header>
-
-    <!-- Simple Blog Hero Section -->
-    <section class="bg-primary-custom bg-dots border-bottom-black-2 pt-5 pb-5 mt-5">
-        <div class="container pt-5 pb-4 text-center">
-            <span class="d-inline-block bg-white px-4 py-2 rounded-pill border-black-2 shadow-neo-4 fw-bold mb-4 fs-6 text-dark" style="transform: rotate(-2deg);">
-                ✍️ Blog & Publikasi
-            </span>
-            <h1 class="font-cabinet fw-bolder display-2 mb-4 text-white" style="letter-spacing: -2px; text-shadow: 4px 4px 0 #000;">
-                Wawasan & Pembaruan
-            </h1>
-            <p class="fs-4 fw-medium mx-auto text-white mb-0" style="max-width: 700px; text-shadow: 2px 2px 0 #000;">
-                Temukan panduan, tips, dan tren terbaru untuk memaksimalkan produktivitas serta kolaborasi menggunakan teknologi layar interaktif.
-            </p>
-        </div>
-    </section>
-
-    <!-- Daftar Artikel (Blog Grid) -->
-    <section class="py-5 bg-white border-bottom-black-2">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="font-cabinet fw-bolder display-5 mb-3 bg-primary-custom text-white d-inline-block px-4 py-2 border-black-2 shadow-neo-4 rounded-3xl">Artikel Terbaru</h2>
-            </div>
-            
-            <div class="row g-4 align-items-stretch">
-                <!-- Blog Card 1 -->
-                <div class="col-md-4">
-                    <div class="bg-white border-black-2 p-4 rounded-3xl shadow-neo-8 h-100 neo-card d-flex flex-column text-dark">
-                        <img src="img/blog1.webp" alt="Panduan Panel Interaktif" class="border-black-2 rounded-2xl mb-4 w-100" style="height: 200px; object-fit: cover;">
-                        <div class="mb-3">
-                            <span class="badge bg-primary-custom border-black-2 text-white px-3 py-1 fs-6 shadow-neo-4">Tips & Trik</span>
-                        </div>
-                        <h3 class="font-cabinet fw-bold fs-3 mb-3">Cara Memilih Panel Datar Interaktif yang Tepat</h3>
-                        <p class="fw-medium text-secondary mb-4 flex-grow-1">Panduan praktis untuk memilih interactive flat panel yang sesuai dengan ukuran ruangan, spesifikasi teknis, dan anggaran instansi Anda.</p>
-                        <a href="artikel-memilih-panel.html" class="btn btn-outline-dark border-black-2 shadow-neo-4 fw-bold py-2 mt-auto text-decoration-none">Baca Artikel</a>
-                    </div>
-                </div>
-
-                <!-- Blog Card 2 -->
-                <div class="col-md-4">
-                    <div class="bg-white border-black-2 p-4 rounded-3xl shadow-neo-8 h-100 neo-card d-flex flex-column text-dark">
-                        <img src="img/blog2.webp" alt="Kolaborasi Tim Perusahaan" class="border-black-2 rounded-2xl mb-4 w-100" style="height: 200px; object-fit: cover;">
-                        <div class="mb-3">
-                            <span class="badge bg-primary-custom border-black-2 text-white px-3 py-1 fs-6 shadow-neo-4">Perusahaan</span>
-                        </div>
-                        <h3 class="font-cabinet fw-bold fs-3 mb-3">Tingkatkan Kolaborasi Tim dengan Panel Pintar</h3>
-                        <p class="fw-medium text-secondary mb-4 flex-grow-1">Pelajari integrasi layar sentuh di ruang rapat modern untuk mempercepat proses brainstorming dan eksekusi ide bisnis perusahaan.</p>
-                        <a href="artikel-kolaborasi-tim.html" class="btn btn-outline-dark border-black-2 shadow-neo-4 fw-bold py-2 mt-auto text-decoration-none">Baca Artikel</a>
-                    </div>
-                </div>
-
-                <!-- Blog Card 3 -->
-                <div class="col-md-4">
-                    <div class="bg-white border-black-2 p-4 rounded-3xl shadow-neo-8 h-100 neo-card d-flex flex-column text-dark">
-                        <img src="img/blog3.webp" alt="Ruang Kelas Interaktif" class="border-black-2 rounded-2xl mb-4 w-100" style="height: 200px; object-fit: cover;">
-                        <div class="mb-3">
-                            <span class="badge bg-primary-custom border-black-2 text-white px-3 py-1 fs-6 shadow-neo-4">Pendidikan</span>
-                        </div>
-                        <h3 class="font-cabinet fw-bold fs-3 mb-3">Masa Depan Ruang Kelas Interaktif Digital</h3>
-                        <p class="fw-medium text-secondary mb-4 flex-grow-1">Eksplorasi manfaat panel cerdas bagi siswa dan guru dalam menciptakan ekosistem pembelajaran yang lebih imersif dan menarik.</p>
-                        <a href="artikel-ruang-kelas.html" class="btn btn-outline-dark border-black-2 shadow-neo-4 fw-bold py-2 mt-auto text-decoration-none">Baca Artikel</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="bg-dots border-bottom-black-2 py-5 text-center">
-        <div class="container py-5">
-            <h2 class="font-cabinet fw-bolder display-4 mb-4 text-white" style="letter-spacing: -1px; text-shadow: 2px 2px 0 #000;">Ingin Membaca Lebih Banyak?</h2>
-            <p class="fs-5 fw-medium mb-5 mx-auto text-white" style="max-width: 500px; text-shadow: 1px 1px 0 #000;">Berlangganan newsletter kami untuk mendapatkan update terbaru seputar teknologi ruang rapat dan kelas.</p>
-            <a href="https://wa.me/6288989643555" class="btn btn-dark text-white px-5 py-4 border-black-2 rounded-xl shadow-neo-8 neo-btn-8 fw-bold fs-4 text-decoration-none d-inline-flex align-items-center gap-2">
-                <svg style="width: 24px; height: 24px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.418-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
-                Konsultasi via WhatsApp
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="kontak" class="bg-charcoal py-5">
-        <div class="container pt-4">
-            <div class="row g-5 mb-5">
-                <!-- Kolom 1 -->
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center gap-2 mb-4">
-                        <div class="bg-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
-                            <svg class="text-black" style="width: 20px; height: 20px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.381z" clip-rule="evenodd"></path></svg>
-                        </div>
-                        <span class="font-cabinet fw-bolder fs-5 text-white" style="letter-spacing: -1px;">PANELPRO</span>
-                    </div>
-                    <p class="text-secondary fw-medium small">Interactive Flat Panel (IFP) adalah layar cerdas all-in-one yang menggabungkan PC, proyektor, dan papan tulis interaktif untuk kolaborasi tanpa batas.</p>
-                </div>
-                
-                <!-- Kolom 2 (Menu) -->
-                <div class="col-md-4">
-                                        <h4 class="font-cabinet fw-bold fs-5 mb-3 text-white">Menu Navigasi</h4>
-                    <ul class="list-unstyled fw-medium small d-grid gap-2">
-                        <li><a href="index.html" class="text-secondary text-decoration-none hover:text-white">Beranda</a></li>
-                        <li><a href="about.html" class="text-secondary text-decoration-none hover:text-white">Tentang kami</a></li>
-                        <li><a href="produk.html" class="text-secondary text-decoration-none hover:text-white">Produk</a></li>
-                        <li><a href="package.html" class="text-secondary text-decoration-none hover:text-white">Paket</a></li>
-                        <li><a href="blog.html" class="text-secondary text-decoration-none hover:text-white">Blog</a></li>
-                        <li><a href="https://wa.me/6288989643555" class="text-secondary text-decoration-none hover:text-white">Kontak</a></li>
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <h5>Network</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://sunrisecamp.web.id/">sunrisecamp.web.id</a></li>
+                        <li class="mb-2"><a href="https://citylightscamp.web.id/">citylightscamp.web.id/</a></li>
+                        <li class="mb-2"><a href="https://paketcampingbatu.web.id">paketcampingbatu.web.id</a></li>
+                        <li class="mb-2"><a href="https://batucamping.web.id/">batucamping.web.id</a></li>
+                        <li class="mb-2"><a href="https://wisatacampingbatu.web.id/">wisatacampingbatu.web.id</a></li>
+                        <li class="mb-2"><a href="https://campingbatumalang.web.id/">campingbatumalang.web.id</a></li>
+                        <li class="mb-2"><a href="https://batugroundcamping.web.id/">batugroundcamping.web.id</a></li>
                     </ul>
                 </div>
-                
-                <!-- Kolom 3 (Sosial) -->
-                <div class="col-md-4">
-                    <h4 class="font-cabinet fw-bold fs-5 mb-3 text-white">Sosial</h4>
-                    <div class="d-flex gap-3">
-                        <!-- Instagram -->
-                        <a href="#" class="bg-dark-custom text-secondary d-flex align-items-center justify-content-center social-icon" style="width: 40px; height: 40px; border: 2px solid #6c757d; border-radius: 4px; transition: all 0.2s;">
-                            <svg style="width: 18px; height: 18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                        </a>
-                        <!-- TikTok -->
-                        <a href="#" class="bg-dark-custom text-secondary d-flex align-items-center justify-content-center social-icon" style="width: 40px; height: 40px; border: 2px solid #6c757d; border-radius: 4px; transition: all 0.2s;">
-                            <svg style="width: 18px; height: 18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                        </a>
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/6288989643555" target="_blank" class="bg-dark-custom text-secondary d-flex align-items-center justify-content-center social-icon" style="width: 40px; height: 40px; border: 2px solid #6c757d; border-radius: 4px; transition: all 0.2s;">
-                            <svg style="width: 18px; height: 18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.418-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
-            </svg>
+                <div class="col-lg-3">
+                    <h5>Kontak Kami</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Jl. Gn. Banyak, Jurangrejo,
+                            Pandesari, Kec. Bumiaji, Kota Batu, Jawa Timur 65391
+                        </li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> 0812-3922-5692</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="https://wa.me/6281239225692" target="_blank" class="floating-btn fab-wa-1 shadow-lg"
+            aria-label="WhatsApp CS" title="Hubungi CS 1">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#" class="floating-btn fab-top shadow-lg" id="btnTop" aria-label="Back to Top" title="Kembali ke Atas">
+            <i class="fas fa-arrow-up"></i>
         </a>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Efek hover untuk ikon sosial media
-        document.querySelectorAll('.social-icon').forEach(icon => {
-            icon.addEventListener('mouseenter', () => {
-                icon.style.backgroundColor = 'var(--primary)';
-                icon.style.color = '#fff';
-                icon.style.borderColor = '#000';
-            });
-            icon.addEventListener('mouseleave', () => {
-                icon.style.backgroundColor = 'var(--dark)';
-                icon.style.color = '#6c757d';
-                icon.style.borderColor = '#6c757d';
-            });
-        });
-    </script>
-<script>
-
-        // Efek hover untuk dropdown menu
-        const dropdownItems = document.querySelectorAll('.neo-dropdown .dropdown-item');
-        dropdownItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.backgroundColor = 'var(--primary)';
-                item.style.color = '#fff';
-            });
-            item.addEventListener('mouseleave', () => {
-                item.style.backgroundColor = 'transparent';
-                item.style.color = '#000';
-            });
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
